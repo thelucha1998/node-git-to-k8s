@@ -44,6 +44,7 @@ pipeline {
                     echo "========== Git clone =========="
                     git branch: 'master',
                             url: 'git@github.com:thelucha1998/node-git-to-k8s.git'
+                                credentialsId: 'github'
 
                     echo "========== Docker build =========="
                     def fullImage = "${registry}/${repository}:${dockerTag}.${env.BUILD_NUMBER}"
