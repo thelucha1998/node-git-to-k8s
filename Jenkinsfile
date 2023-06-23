@@ -15,9 +15,9 @@ pipeline {
     environment {
         nodePath = 'node'
         repository = 'demo'
-        registry = 'docker-artifactory-webinar.jfrogdev.co'
-        creds = 'dockerregistrywebinar'
-        artCreds = credentials('dockerregistrywebinar')
+        registry = 'gitlab-jenkins.opes.com.vn'
+        creds = 'harbor'
+        artCreds = credentials('harbor')
 
         helmRepo = 'https://artifactory-webinar.jfrogdev.co/artifactory/helm'
         helmRelease = 'webinar-example'
@@ -42,7 +42,7 @@ pipeline {
                 script {
                     echo "========== Git clone =========="
                     git branch: 'master',
-                            url: 'git@github.com:eldada/node-git-to-k8s.git'
+                            url: 'git@github.com:thelucha1998/node-git-to-k8s.git'
 
                     echo "========== Docker build =========="
                     def fullImage = "${registry}/${repository}:${dockerTag}.${env.BUILD_NUMBER}"
